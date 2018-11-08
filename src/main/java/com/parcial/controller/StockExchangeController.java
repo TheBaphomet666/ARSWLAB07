@@ -1,11 +1,9 @@
 package com.parcial.controller;
 
-import com.parcial.Services.StockExchange;
-import com.parcial.connector.Connector;
+import com.parcial.Services.ServicesImp.StockExchange;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 @CrossOrigin("*")
 @RestController("/StockExchange")
 public class StockExchangeController {
@@ -26,11 +24,11 @@ public class StockExchangeController {
     }
 
 */
-    @GetMapping("/{Symbol}/{Mode}")
-    public StringBuffer getStockExchange(@PathVariable("Symbol") String Symbol,@PathVariable("Mode") String Mode){
-        System.out.println("ENTRADA:"+Symbol+"_"+Mode);
+    @GetMapping("/{function}/{symbol}")
+    public StringBuffer getStockExchange(@PathVariable("function") String function,@PathVariable("symbol") String symbol){
+        System.out.println("ENTRADA:"+function+"/"+symbol);
         System.out.println("LLEGO?");
-        return se.Consult("MSFT",Mode);
+        return se.Consult(function,symbol);
     }
 
 }
