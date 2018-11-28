@@ -1,6 +1,6 @@
 package com.parcial.controller;
 
-import com.parcial.Services.ServicesImp.StockExchange;
+import com.parcial.Services.StockExchange;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
