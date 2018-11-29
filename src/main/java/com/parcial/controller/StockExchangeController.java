@@ -5,13 +5,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin("*")
-@RestController("/StockExchange")
+@RestController
+@RequestMapping(value = "/StockExchange")
 public class StockExchangeController {
 
     @Autowired
     StockExchange se;
 
-    @RequestMapping()
+    /*@RequestMapping()
     public String getTestString(){
 
 
@@ -24,10 +25,12 @@ public class StockExchangeController {
     }
 
 */
-    @GetMapping("/{function}/{symbol}")
+
+    @RequestMapping(value = "/{function}/{symbol}",method = RequestMethod.GET)
     public StringBuffer getStockExchange(@PathVariable("function") String function,@PathVariable("symbol") String symbol){
         System.out.println("ENTRADA:"+function+"/"+symbol);
         System.out.println("LLEGO?");
+
         return se.Consult(function,symbol);
     }
 
